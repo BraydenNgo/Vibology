@@ -30,16 +30,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Vibology</h1>
         {!token ? (
-          <button class="LoginButton"
-            onClick={() => {
-              window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
-            }}
-          >
-            Login to Spotify
-          </button>
-        ) : <button className = "logout-button" onClick={logout}>Logout</button>}
+          <div className="pre-login">
+            <h1>Vibology</h1>
+            <button class="login-button"
+              onClick={() => {
+                window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+              }}
+            >
+              Login to Spotify
+            </button>
+          </div>
+        ) : (
+          <div className="post-login">
+            <button className="logout-button" onClick={logout}>Logout</button>
+          </div>
+        )}
       </header>
     </div>
   );
