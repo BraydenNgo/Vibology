@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import AppRouter from './components/AppRouter.jsx';
 import React from "react";
 import Analyzer from './components/Analyzer';
+import Cookies from 'js-cookie';
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
@@ -37,24 +38,25 @@ function App() {
 ].join(" ");
 
 
-  const [token, setToken] = useState(window.localStorage.getItem("token"))
+  const [token, setToken] = useState(Cookies.get("token") || "")
 
   useEffect(() => {
     const hash = window.location.hash
-    let token = window.localStorage.getItem("token")
+    let token = Cookies.get("token")
 
     if(!token && hash) {
       token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
 
       window.location.hash = ""
-      window.localStorage.setItem("token", token)
+      // TODO: set to a minute for now for testing purposes but we should use 30 days in the future
+      Cookies.set("token", token, { expires: 1 / 24 / 60 })
       setToken(token)
     }
-  })
+  }, [])
 
   const logout = () => {
     setToken("")
-    window.localStorage.removeItem("token")
+    Cookies.remove("token")
   }
 
   return (
