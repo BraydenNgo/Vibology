@@ -72,3 +72,30 @@
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+.logout-button {
+  background-color: #f44336; /* Red color */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+  position: absolute;
+  top: 1rem; /* 10 pixels from the top */
+  right: 1rem; /* 10 pixels from the right */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly scale the button up */
+}
+
+.logout-button:active {
+  transform: scale(0.95); /* Slightly scale the button down */
+}
