@@ -9,6 +9,33 @@ function App() {
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const RESPONSE_TYPE = "token"
+  const SCOPES = [
+    // User
+    "user-read-private",
+    "user-read-email",
+    "user-library-read",
+    "user-library-modify",
+    "user-read-playback-state",
+    "user-modify-playback-state",
+    "user-read-currently-playing",
+    "user-read-recently-played",
+    "user-top-read",
+    
+    // Playlists
+    "playlist-read-private",
+    "playlist-modify-public",
+    "playlist-modify-private",
+    "playlist-read-collaborative",
+
+    // Spotify Connect
+    "app-remote-control",
+    "streaming",
+    
+    // Follow
+    "user-follow-read",
+    "user-follow-modify"
+].join(" ");
+
 
   const [token, setToken] = useState(window.localStorage.getItem("token"))
 
@@ -39,7 +66,7 @@ function App() {
             <h1>Vibology</h1>
             <button class="login-button"
               onClick={() => {
-                window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+                window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}`;
               }}
             >
               Login to Spotify
