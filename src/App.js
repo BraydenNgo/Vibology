@@ -39,7 +39,7 @@ function App() {
           >
             Login to Spotify
           </button>
-        ) : <button onClick={logout}>Logout</button>}
+        ) : <button className = "logout-button" onClick={logout}>Logout</button>}
       </header>
     </div>
   );
