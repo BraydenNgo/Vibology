@@ -7,14 +7,20 @@ import DashBoard from "./DashBoard"
 
 function AppRouter() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path = "/playlists" element={
-                    <PlayList/>
-
-                }/>
-            </Routes>
-        </BrowserRouter>
+        <><BrowserRouter>
+                <Routes>
+                    <Route path="/playlists" element={<PlayList/>} />
+                </Routes>
+                <Routes>
+                    <Route path="/about" element={<AboutPage/>} />
+                </Routes>
+                <Routes>
+                    <Route path="/analyzer" element={<Analyer/>} />
+                </Routes>
+                <Routes>
+                    <Route path="/dashboard" element={<DashBoard/>} />
+                </Routes>
+        </BrowserRouter></>
     )
 }
 

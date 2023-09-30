@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import AppRouter from './components/AppRouter.jsx';
 import React from "react";
+import Analyzer from './components/Analyzer';
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
@@ -46,11 +47,20 @@ function App() {
           </div>
         ) : (
           <>
-            <div className="post-login">
-            <button className="logout-button" onClick={logout}>Logout</button>
-            </div>    
-          </>
+              <div className="post-login">
+                  <button className="logout-button" onClick={logout}>Logout</button>
+                </div>
 
+                <div className = "nav-bar">
+                  <ul>
+                  <li><a href = "http://localhost:3000/Dashboard"> Dashboard</a></li>
+                    <li><a href = "http://localhost:3000/analyzer"> Analyzer</a></li>
+                    <li><a href = "http://localhost:3000/playlists"> Playlists</a></li>
+                    <li><a href = "http://localhost:3000/about"> About</a></li>
+                  </ul>
+                  <AppRouter/>
+                </div>
+          </>
         )}
       </header>
     </div>
