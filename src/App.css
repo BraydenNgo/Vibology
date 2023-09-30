@@ -13,7 +13,7 @@
   color: white;
 }
 
-.LoginButton {
+.login-button {
   width: 220px;
   height: 50px;
   border: none;
@@ -26,7 +26,7 @@
   border-radius: 10px;
 }
 
-.LoginButton:before {
+.login-button:before {
   content: '';
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
@@ -43,19 +43,19 @@
   border-radius: 10px;
 }
 
-.LoginButton:active {
+.login-button:active {
   color: #000
 }
 
-.LoginButton:active:after {
+.login-button:active:after {
   background: transparent;
 }
 
-.LoginButton:hover:before {
+.login-button:hover:before {
   opacity: 1;
 }
 
-.LoginButton:after {
+.login-button:after {
   z-index: -1;
   content: '';
   position: absolute;
