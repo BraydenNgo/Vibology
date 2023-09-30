@@ -1,5 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import AppRouter from './components/AppRouter.jsx';
+import React from "react";
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
@@ -28,7 +30,8 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
+        <div className="App">
       <header className="App-header">
         {!token ? (
           <div className="pre-login">
@@ -42,12 +45,16 @@ function App() {
             </button>
           </div>
         ) : (
-          <div className="post-login">
+          <>
+            <div className="post-login">
             <button className="logout-button" onClick={logout}>Logout</button>
-          </div>
+            </div>    
+          </>
+
         )}
       </header>
     </div>
+    </>
   );
 }
 
