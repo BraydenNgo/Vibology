@@ -102,12 +102,14 @@
 
 .nav-bar {
   font-family: Arial, sans-serif;
-  position: fixed;  
+  position: absolute;  
   top: 0;          
   left: 0;         
   width: 91%;     
   z-index: 1000;  
   margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-bar ul {
@@ -134,4 +136,9 @@
 
 .nav-bar li a:hover {
   color: #1ed760;
+  font-size: 1.55rem;
+}
+
+.router {
+  margin-top: 10rem;
 }

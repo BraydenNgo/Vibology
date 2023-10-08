@@ -87,6 +87,9 @@ function App() {
                     <li><a href = "http://localhost:3000/playlists"> Playlists</a></li>
                     <li><a href = "http://localhost:3000/about"> About</a></li>
                   </ul>
+                </div>
+
+                <div className = "router">
                   <AppRouter/>
                 </div>
           </>
