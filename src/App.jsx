@@ -1,9 +1,14 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import AppRouter from './components/AppRouter.jsx';
 import React from "react";
 import Analyzer from './components/Analyzer';
+import DashBoard from './components/DashBoard';
+import PlayList from './components/PlayList';
+import AboutPage from './components/AboutPage';
 import Cookies from 'js-cookie';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import vibologyLogo from './assets/vibology_logo.png'
 
 function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
@@ -76,22 +81,21 @@ function App() {
           </div>
         ) : (
           <>
-              <div className="post-login">
+                <BrowserRouter>
+                  <Navbar/>
+                    <Routes>
+                      <Route path="/" element={<DashBoard/>} />
+                      <Route path="/playlists" element={<PlayList/>} />
+                      <Route path="/analyzer" element={<Analyzer/>} />
+                      <Route path="/about" element={<AboutPage/>} />
+                    </Routes>
+                </BrowserRouter>
+
+                <div className="post-login">
                   <button className="logout-button" onClick={logout}>Logout</button>
                 </div>
-
-                <div className = "nav-bar">
-                  <ul>
-                  <li><a href = "http://localhost:3000/Dashboard"> Dashboard</a></li>
-                    <li><a href = "http://localhost:3000/analyzer"> Analyzer</a></li>
-                    <li><a href = "http://localhost:3000/playlists"> Playlists</a></li>
-                    <li><a href = "http://localhost:3000/about"> About</a></li>
-                  </ul>
-                </div>
-
-                <div className = "router">
-                  <AppRouter/>
-                </div>
+                <img className="logo" src={vibologyLogo} alt="logo"/>
+                <h1 className="logo-text">Vibology</h1>
           </>
         )}
       </header>
