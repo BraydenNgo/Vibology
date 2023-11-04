@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
+import Cookies from 'js-cookie';
 
 const Analyzer = () => {
     const callAnalyzer = async () => {
-        const response = await fetch('http://localhost:8000', {
-            method: 'GET', // or 'POST' if you are sending data
+        const response = await fetch('http://localhost:8000/analyze', {
+            method: 'GET', 
             headers: {
                 'Content-Type': 'application/json',
-                // Include other headers if needed, such as Authorization for JWT tokens
+                 Authorization: `Bearer ${Cookies.get('token')}`,
             },
-            // If you need to send data with a POST request, include a body:
             // body: JSON.stringify(data)
         });
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data); // Here you have your data from the backend
+            console.log(data);
         } else {
             // Handle errors
             console.error('Error fetching members:', response.statusText);
@@ -23,7 +23,7 @@ const Analyzer = () => {
 
     useEffect(() => {
         callAnalyzer();
-    }, []); // An empty dependency array means this will run once when the component mounts
+    }, []); 
 
     return (
         <>
