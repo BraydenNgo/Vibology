@@ -87,7 +87,7 @@
   border-radius: 8px;
   transition: background-color 0.3s, transform 0.3s;
   position: absolute;
-  top: 1rem; 
+  top: 2rem; 
   right: 1rem; 
 }
 
@@ -100,45 +100,19 @@
   transform: scale(0.95); 
 }
 
-.nav-bar {
-  font-family: Arial, sans-serif;
-  position: absolute;  
-  top: 0;          
-  left: 0;         
-  width: 91%;     
-  z-index: 1000;  
-  margin-top: 0.5rem;
-  display: flex;
-  flex-direction: column;
+.logo {
+  height: 4rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
 }
 
-.nav-bar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  text-align: right;
-  padding-left: 20%; 
-}
-
-.nav-bar li {
-  display: inline-block;
-  margin-left: 20px; 
-}
-
-.nav-bar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-.nav-bar li a:hover {
-  color: #1ed760;
-  font-size: 1.55rem;
-}
-
-.router {
-  margin-top: 10rem;
+.logo-text {
+  height: 4rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: -0.5rem;
+  left: 8rem;
+  font-size: 3rem;
 }
